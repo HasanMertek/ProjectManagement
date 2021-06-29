@@ -21,5 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
+
+        public DbSet<EmployeeImage> EmployeeImages { get; set; }
     }
 }

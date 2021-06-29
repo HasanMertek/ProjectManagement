@@ -22,6 +22,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<DepartmentManager>().As<IDepartmentService>().SingleInstance();
             builder.RegisterType<EfDepartmentDal>().As<IDepartmentDal>().SingleInstance();
 
+            builder.RegisterType<EmployeeImageManager>().As<IEmployeeImageService>().SingleInstance();
+            builder.RegisterType<EfEmployeeImageDal>().As<IEmployeeImageDal>().SingleInstance();
+
             builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>().SingleInstance();
             builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>().SingleInstance();
 
@@ -37,7 +40,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
-            builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
+            
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

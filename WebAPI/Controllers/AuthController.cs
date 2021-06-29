@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : Controller
     {
@@ -37,8 +37,8 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpPost("register")]
-        public ActionResult Register(UserForRegisterDto userForRegisterDto)
+        [HttpPost,Route("register")]
+        public ActionResult Register([FromBody]UserForRegisterDto userForRegisterDto)
         {
             var userExists = _authService.UserExists(userForRegisterDto.Email);
             if (!userExists.Success)
