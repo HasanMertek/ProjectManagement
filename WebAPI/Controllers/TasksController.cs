@@ -30,10 +30,61 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int taskId)
+        {
+            var result = _taskService.GetById(taskId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpPost("add")]
         public IActionResult Add(Task task)
         {
             var result = _taskService.Add(task);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("gettasksdetails")]
+        public IActionResult GetTasksDetails()
+        {
+            var result = _taskService.GetTasksDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("gettasksdetailsbyemployeeid")]
+        public IActionResult GetTasksDetailsByEmployeeId(int employeeId)
+        {
+            var result = _taskService.GetByEmployeeId(employeeId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpPost("update")]
+        public IActionResult Update(Task task)
+        {
+            var result = _taskService.Update(task);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpPost("delete")]
+        public IActionResult Delete(Task task)
+        {
+            var result = _taskService.Delete(task);
             if (result.Success)
             {
                 return Ok(result);

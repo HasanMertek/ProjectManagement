@@ -65,5 +65,16 @@ namespace WebAPI.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int departmentId)
+        {
+
+            var result = _departmentService.GetById(departmentId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

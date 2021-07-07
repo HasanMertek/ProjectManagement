@@ -12,5 +12,7 @@ namespace Business.Abstract
         IResult Add(Announcement announcement);
         IResult Delete(Announcement announcement);
         IResult Update(Announcement announcement);
+
+        IDataResult<Announcement> GetById(int announcementId);
     }
 }

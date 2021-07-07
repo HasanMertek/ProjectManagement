@@ -31,6 +31,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int announcementId)
+        {
+            var result = _announcementService.GetById(announcementId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("add")]
         public IActionResult Add(Announcement announcement)

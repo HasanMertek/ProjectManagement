@@ -37,6 +37,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Department>>(_departmentDal.GetAll(), Messages.SuccessList);
         }
 
+        public IDataResult<Department> GetById(int departmentId)
+        {
+            return new SuccessDataResult<Department>(_departmentDal.Get(x => x.Id == departmentId), Messages.SuccesFind);
+        }
+
         public IResult Update(Department department)
         {
             _departmentDal.Update(department);
